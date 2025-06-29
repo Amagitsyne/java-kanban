@@ -1,3 +1,9 @@
+import ru.yandex.course.model.Epic;
+import ru.yandex.course.model.SubTask;
+import ru.yandex.course.model.Task;
+import ru.yandex.course.model.TaskStatus;
+import ru.yandex.course.service.TaskManager;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -5,13 +11,12 @@ public class Main {
 
         // проверка taskManager по условиям из практикума
 
-        //p.s. признаюсь, для меня это было сложное задание и без студентов из когорты, которые также выполняли его, я бы не успел
-        //но это было крайне интересно! Надеюсь, всё работает хорошо и сделано правильно. Я поскакал впитывать 5 спринт
-        //p.s.s. это фз показало, что у меня есть некоторые пробелы в знаниях, поэтому после 5 спринта буду навёртстывать!
-        //а учиться нравится, жду фидбек :)
+        //Так, кажется, всё поправил, что требовалось! Заменил мапы, где говорилось, на листы
+        //Если несложно, можно какую-нибудь ознакомительную ссылочку, чтобы я узнал, чем ArrayList отличается от List, а
+        // HashMap от Map? Будет полезно!
 
 
-        int taskId1 = taskManager.addTask(new Task("Разобраться с делами по дому","До приезда родителей", 0, TaskStatus.NEW));
+        int taskId1 = taskManager.addTask(new Task("Разобраться с делами по дому", "До приезда родителей", 0, TaskStatus.NEW));
         int taskId2 = taskManager.addTask(new Task("Подготовиться к празднику", "Купить продукты и убраться", 0, TaskStatus.NEW));
 
         Epic epic1 = new Epic("Новая работа", "Устроиться на новую работу", 0, TaskStatus.NEW);
@@ -19,7 +24,7 @@ public class Main {
         Epic epic2 = new Epic("Успеть закончить 5 спринт", "Дедлайн близко, а ты ещё на 4, МДА!", 0, TaskStatus.NEW);
         int epicId2 = taskManager.createEpic(epic2);
 
-        int subtaskId1 = taskManager.createSubTask(new SubTask("Уволиться со старой работы", "Обязательно!", 0, TaskStatus.NEW, epicId1 ));
+        int subtaskId1 = taskManager.createSubTask(new SubTask("Уволиться со старой работы", "Обязательно!", 0, TaskStatus.NEW, epicId1));
         int subtaskId2 = taskManager.createSubTask(new SubTask("Связаться с начальником", "Сообщить дату увольнения", 0, TaskStatus.IN_PROGRESS, epicId1));
         int subtaskId3 = taskManager.createSubTask(new SubTask("Закончить ФЗ 4 спринта", "Написать код и отправиться ревьюеру", 0, TaskStatus.DONE, epicId2));
         int subtaskId4 = taskManager.createSubTask(new SubTask("Кабаном до проверки на 5 спринт", "ПРЯМ КАБАНОМ, БРО! ВЗЯЛ И ПОМЧАЛСЯ, ХРЮ-ХРЮ!", 0, TaskStatus.IN_PROGRESS, epicId2));
