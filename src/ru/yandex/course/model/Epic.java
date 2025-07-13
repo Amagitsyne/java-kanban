@@ -1,31 +1,30 @@
 package ru.yandex.course.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Epic extends Task {
-    private final ArrayList<Integer> subId;
+    private final List<Integer> subId = new ArrayList<>();
 
-    public Epic(String name, String description, int id, TaskStatus status) {
-        super(name, description, id, status);
-        this.subId = new ArrayList<>();
+    public Epic(String title, String description) {
+        super(title, description, TaskStatus.NEW);
     }
 
-    public ArrayList<Integer> getSubTaskIds() {
+    public List<Integer> getSubTaskIds() {
         return subId;
     }
 
-    public void addSubTaskId(int subTaskId) {
-        subId.add(subTaskId);
+    public void addSubTask(int id) {
+        subId.add(id);
     }
 
-    @Override
-    public String toString() {
-        return "ru.yandex.course.model.Epic{" +
-                "subTaskIds=" + subId +
-                ", name='" + getName() + '\'' +
-                ", description='" + getDescription() + '\'' +
-                ", id=" + getId() +
-                ", status=" + getStatus() +
-                '}';
+    public void removeSubTask(int id) {
+        subId.remove((Integer) id);
     }
+
+    public void removeAllSubTasks() {
+        subId.clear();
+    }
+
+
 }

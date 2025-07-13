@@ -3,8 +3,8 @@ package ru.yandex.course.model;
 public class SubTask extends Task {
     private final int epicId;
 
-    public SubTask(String name, String description, int id, TaskStatus status, int epicId) {
-        super(name, description, id, status);
+    public SubTask(String name, String description, TaskStatus status, int epicId) {
+        super(name, description, status);
         this.epicId = epicId;
     }
 
@@ -12,14 +12,4 @@ public class SubTask extends Task {
         return epicId;
     }
 
-    @Override
-    public String toString() {
-        return "ru.yandex.course.model.SubTask{"
-                + "epicId=" + epicId +
-                ", name='" + getName() + '\'' +
-                ", description='" + getDescription() + '\'' +
-                ", id=" + getId() + '\'' +
-                ", status=" + getStatus() +
-                '}';
-    }
 }

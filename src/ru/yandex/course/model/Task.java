@@ -8,8 +8,7 @@ public class Task {
     private String description;
     private TaskStatus status;
 
-    public Task(String name, String description, int id, TaskStatus status) {
-        this.id = id;
+    public Task(String name, String description, TaskStatus status) {
         this.name = name;
         this.description = description;
         this.status = status;
@@ -55,12 +54,6 @@ public class Task {
         Task task = (Task) o;
         return Objects.equals(id, task.id) && Objects.equals(name, task.name)
                 && Objects.equals(description, task.description);
-
-        //Не корректнее ли выше использовать следующий вариант:
-        //return id == task.id &&
-        //               Objects.equals(name, task.name) &&
-        //               Objects.equals(description, task.description);
-        //? Надеюсь, ничего страшного, что я прошу фидбэк вот такими комментами :)
     }
 
     @Override
