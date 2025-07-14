@@ -9,8 +9,13 @@ public class Main {
 
     public static void main(String[] args) {
         TaskManager taskManager = new InMemoryTaskManager();
-
-        //Скоро взорвётся голова, но, вроде как, всё сделано. Надеюсь на это, по крайней мере ;D
+        //Добавил Managers, HistoryManager, InMemoryHistoryManager в service (вопрос: может, лучше отправить их в
+        //ru.yandex.course.managers? Не силён в этой теме, вдруг так будет лучше? Выглядит как отдельная тему, не уверен)
+        //Добавил также категорию тестов InMemoryTaskManagerHistoryTest, но видел замечание, что не все методы в
+        //InMemoryTaskManagerTest были покрыты тестами. Значит, желательно протестировать все методы из InMemoryTaskManager?
+        //Или только какие-то определённые?
+        //P.S. спасибо за помощь, Максим! Очень благодарен, а то уже дедлайн, думал что вообще свихнусь.
+        //Даже часть ТЗ забыл...
 
         Task task1 = new Task("Сохранить ментальное здоровье", "Курсы", TaskStatus.NEW);
         Task task2 = new Task("Закрыть 5 спринт до 14 числа (включительно, я надеюсь)", "Курсы", TaskStatus.NEW);
